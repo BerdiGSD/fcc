@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Poppins&display=swap');
+
+* {
+  background-color: #fff7e6;
+}
+
+html {
+  font-size: 80%;
+}
+
+body{
+  font-family: Caveat, arial, sans-serif;
+  position: relative;
+  top: 50px; 
+  margin: 0 10vw 10vh 10vw;
+  /* border: 1px solid black; */
+}
+
+header{
+  display: inline-flex;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  /* border: 1px solid black; */
+}
+
+img {
+  width: 6em;
+  margin-left: 20px; 
+}
+
+#logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: start;
+  
+}
+
+#logo_name {
+  margin-left: 10px;
+  font-size: 3em;
+  /* border: 1px solid black; */
+}
+
+li {
+  list-style: none;
+}
+
+header #nav-bar{
+  color: blue;
+  top: 5;
+  right: 0;
+  /* border: 1px solid black; */
+}
+
+#nav-bar li{
+  display: inline-flex;
+  position: relative;
+  right: 0;
+  margin: 2vw ;
+  font-size: 2.5em;
+  /* border: 1px solid black; */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  color: green;
+}
+
+.form, .video, .pricing, .footer {
+  position: relative;
+  top: 60px;
+}
+
+#form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  /* border: 1px dashed black; */
+  
+}
+
+.form h1{
+  font-size: 2.8em;
+}
+
+#email {
+  width: 25rem;
+  height: auto;
+}
+
+#submit:hover {
+  background-color: blue;
+  color: white;
+}
+
+#submit {
+  width: 10%;
+  height: 5%;
+  margin-top: 5px;
+}
+
+
+
+#services {
+  /* border: 1px dashed black; */
+  padding-top: 10vh;
+}
+
+#services i {
+  font-size: 3.2em;
+}
+
+#services h2 {
+  font-size: 2.1em;
+  margin-left: 30px;
+}
+
+
+#services li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+
+
+
+
+footer {
+  /* border: 1px dashed black; */
+  position: absolute;
+  right: 0;
+}
+
+#footer li{
+  display: inline-flex;
+  flex-direction: row;
+  margin-left: 15px;
+  font-size: 1.8em;
+  /* border: 1px dashed black; */
+}
+
+footer p{
+  font-size: 1.5em;
+  display: block;
+  /* border: 1px dashed black; */
+  text-align: right;
+}

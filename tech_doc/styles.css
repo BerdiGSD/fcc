@@ -1,0 +1,193 @@
+html body{
+  display: block;
+  font-family: Arial, Sans-serif;
+  line-height: 1.75;
+  min-width: 280px;
+}
+
+body{
+  display: block;
+  margin: 8px;
+}
+
+#navbar{
+  position: fixed;
+  min-width: 250px;
+  top: 0px;
+  left: 0px;
+  width: 280px;
+  height: 100%;
+  border-right: solid;
+  border-color: lightgrey;
+}
+
+nav{
+  display: block;
+}
+
+nav header{
+  color: black; 
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#navbar ul{
+  height: 80%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+ul{
+  display: block;
+  list-style-type: disc;
+}
+
+li{ 
+  display: list-item;
+}
+
+#navbar li{
+  border-top: 1px solid;
+  list-style: none;
+  position: relative;
+  width: 100%
+}
+
+#navbar a{
+  display: block;
+  padding: 8px 20px;
+  text-decoration: none;
+  color: black
+}
+
+header{
+  color: black; 
+  text-align: left;
+  margin: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+main{
+  display: block;
+  text-align: left;
+}
+
+#main-doc{
+  position: absolute;
+  margin-left: 290px;
+  padding: 20px;
+}
+
+section{
+  display: block;
+}
+
+section article{
+  color: rgb(157, 152, 152);
+  margin: 15px;
+  font-size: 0.9em;
+}
+
+article{
+  display: block;
+}
+
+p{
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+li #level_1{
+  display: list-item;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+#level_2{
+  display: list-item;
+  list-style-type: circle;
+  margin-left: 40px;
+}
+
+
+
+code{
+  display: block;
+  margin-left: 60px;
+  background-color: #F0F0F0;
+  padding: 15px 25px 15px 25px;
+  font-size: 14px
+  
+}
+
+/* @media only screen and (max-width: 768px){
+  #navbar{
+    background-color: white;
+    position: absolute;
+    top: 0;
+    padding: 0; 
+    margin: 0;
+    max-height: 100%;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+  }
+  #nav ul{
+    border: 1px solid;
+    height: 200px;
+  }
+  #main-doc{
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+} */
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  #navbar ul {
+    border: 1px solid;
+    height: 207px;
+  }
+
+  #navbar {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 275px;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+}
+
+@media only screen and (max-width: 295px) {
+  #main-doc {
+    margin-left: -10px;
+  }
+
+  code {
+    margin-left: -20px;
+    width: 100%;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 45px;
+    min-width: 233px;
+  }
+}
+
