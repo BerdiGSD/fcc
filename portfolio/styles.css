@@ -1,0 +1,103 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  height:8%;
+  background: red;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+#nav-bar{
+  position: absolute;
+  right: 0;
+  justify-items: center;
+  font: arial, helvetica, sans-serif;
+  font-size: 20px;
+}
+
+#nav-bar ul{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link.about {
+  right: 75px;
+}
+
+.nav-link.projects {
+  right: 50px;
+}
+
+.nav-link.contact {
+  right: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: white
+}
+nav a:link {
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container{
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+section{
+  height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  scroll-snap-align: start;
+}
+
+h1{
+  color: rgb(226, 226, 226);
+  text-shadow: 1px 1px 4px #000;
+
+}
+
+.one{
+  background: linear-gradient(
+    45deg, 
+    rgb(79, 77, 77),
+    rgb(48, 45, 45)
+  );
+    
+  }
+
+.two{
+  background: linear-gradient(
+    135deg, 
+    rgb(88, 118, 216),
+    rgb(7, 26, 235)
+  );
+}
+
+.three{
+  background: linear-gradient(
+    315deg, 
+    rgb(79, 77, 77) ,
+    rgb(48, 45, 45)
+  );
+}
+
+
