@@ -26,6 +26,7 @@ header{
   left: 0;
   width: 100vw;
   z-index: 100;
+  border-bottom: 10px double tan;
   /* border: 1px solid black; */
 }
 
@@ -38,6 +39,8 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: start;
+  width: 60vw;
+  /* border: 1px solid black; */
   
 }
 
@@ -47,23 +50,16 @@ img {
   /* border: 1px solid black; */
 }
 
-li {
+ul {
   list-style: none;
 }
 
-header #nav-bar{
-  color: blue;
-  top: 5;
-  right: 0;
-  /* border: 1px solid black; */
-}
-
-#nav-bar li{
+#nav-bar>ul{
   display: inline-flex;
-  position: relative;
-  right: 0;
+  justify-content: space-evenly;
   margin: 2vw ;
   font-size: 2.5em;
+  width: 40vw;
   /* border: 1px solid black; */
 }
 
@@ -96,6 +92,8 @@ a:hover{
 #email {
   width: 25rem;
   height: auto;
+  background: white;
+  border-radius: 5px;;
 }
 
 #submit:hover {
@@ -113,7 +111,7 @@ a:hover{
 
 #services {
   /* border: 1px dashed black; */
-  padding-top: 10vh;
+  padding-top: 15vh;
 }
 
 #services i {
@@ -129,24 +127,84 @@ a:hover{
 #services li {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+.video {
+  /* border: 1px dashed black; */
+  display: flex;
+  justify-content: center;
+  padding-top: 15vh;
+  margin-top: -8vh;
+  margin-bottom: 5vh;
+}
+
+#pricing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15vh;
+}
+
+#pricing div {
+  border-radius: 15px;
+  width: 300px;
+  margin-top: 10vh;
+  text-align: center;
+  background-color: white;
+}
+
+div .silver{
+  border: 5px solid silver;
+}
+
+div .gold{
+  border: 5px solid gold;
+}
+
+div .platinum{
+  border: 5px solid #e5e4e2;
+}
+
+#pricing h2 {
+  font-size: 3em;
+  margin: 15px 1px -20px 1px;
+  /* border: 1px dashed black; */
+  background-color: transparent;
+}
+
+ul{
+  padding-left: 0; 
+  background-color: transparent;
+}
+
+#pricing li{
+  background-color: transparent;
+  /* border: 1px dashed black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 2.5em;
+  /* border: 1px dashed black; */
+  background-color: transparent;
 
 }
 
-
-
-
-
 footer {
-  /* border: 1px dashed black; */
-  position: absolute;
-  right: 0;
+  /* border: 1px solid black; */
 }
 
 #footer li{
-  display: inline-flex;
+  display: flex;
+  justify-content: end;
   flex-direction: row;
-  margin-left: 15px;
   font-size: 1.8em;
   /* border: 1px dashed black; */
 }
@@ -156,4 +214,55 @@ footer p{
   display: block;
   /* border: 1px dashed black; */
   text-align: right;
+}
+
+@media only screen and (max-width: 500px) {
+  #nav-bar>ul {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em
+  }
+  #logo_name {
+    font-size: 2em;
+  }
+  img {
+    width: 10vw;
+  }
+
+  #services li {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  #submit {
+    width: 25%;
+  }
+  
+  #video{
+    align-self: center;
+  }
+
+  #pricing {
+    display: flex; 
+    flex-direction: column;
+  }
+
+  #footer li{
+    display: flex;
+    padding: 0;
+    /* border: 1px solid black; */
+  }
+
+  footer ul{
+    /* border: 1px solid black; */
+    display: flex;
+    padding: 0;
+    justify-content: space-evenly;
+  }
+  
+  footer p{
+    text-align: center;
+  }
 }
