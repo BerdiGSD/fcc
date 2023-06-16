@@ -32,3 +32,6 @@ Waiting:Your portfolio should have an a element with an id of profile-link.
 Waiting:Your #profile-link element should have a target attribute of _blank.
 Waiting:Your portfolio should use at least one media query.
 Waiting:Your #navbar element should always be at the top of the viewport.
+
+[6/15] After having some issues with the images not displaying from google account it was decided
+that it would be better to have a file reserved just for the images used in the projects portion of the portfolio.
