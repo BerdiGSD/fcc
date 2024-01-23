@@ -5,6 +5,7 @@ let currentWeapon = 0;
 let fighting;
 let monsterHealth;
 let inventory = ["stick"];
+
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
@@ -14,10 +15,9 @@ const healthText = document.querySelector("#healthText");
 const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
-const monsterHealthText = document.querySelect("#monsterHealth")
+const monsterHealthText = document.querySelector("#monsterHealth");
 
 // initialize buttons 
-
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
@@ -29,11 +29,10 @@ function goTown() {
     button1.onclick = goStore;
     button2.onclick = goCave;
     button3.onclick = fightDragon;
-    text.innerText = "You are in the town square. You see a sign that says Store.";
+    text.innerText = "You are in the town square. You see a sign that says \"Store\".";
 }
 
 function goStore() {
-    // console.log("Going to store.");
     button1.innerText = "Buy 10 health (10 gold)";
     button2.innerText = "Buy weapon (30 gold)";
     button3.innerText = "Go to town square";
@@ -58,4 +57,3 @@ function buyHealth() {
 function buyWeapon() {
 
 }
-
