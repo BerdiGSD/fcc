@@ -16,6 +16,7 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+
 const weapons = [
     {
         name: "stick", 
@@ -33,7 +34,26 @@ const weapons = [
         name: "sword",
         power: 100
     }
-]
+];
+
+const monsters = [
+    {
+        name: "slime",
+        level: 2,
+        health: 15
+    },
+    {
+        name: "fanged beast",
+        level: 8,
+        health: 60
+    },
+    {
+        name: "dragon",
+        level: 20,
+        health: 300
+    }
+];
+
 const locations =[
     {
         name: "town square",
@@ -52,6 +72,12 @@ const locations =[
         "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
         "button functions": [fightSlime, fightBeast, goTown],
         text: "You enter the cave. You see some monsters."
+    },
+    {
+        name: "fight",
+        "button text": ["Attack", "Dodge", "Run"],
+        "button functions": [attack, dodge, goTown],
+        text: "You are fighting a monster."
     }
 ];
 
@@ -80,10 +106,6 @@ function goStore() {
 
 function goCave() {
     update(locations[2]);
-}
-
-function fightDragon() {
-    console.log("Fighting Dragon.");
 }
 
 function buyHealth() {
@@ -119,13 +141,51 @@ function buyWeapon() {
 }
 
 function sellWeapon() {
-    
+    if (inventory.length > 1) {
+        gold += 15;
+        goldText.innerText = gold;
+        let currentWeapon = inventory.shift();
+        text.innerText = "You sold a " + currentWeapon + ".";
+        text.innerText = " In your inventory you have: " + inventory;
+    } else {
+        text.innerText = "Don't sell your only weapon.";
+    }
 }
 
 function fightSlime() {
-
+    fighting = 0;
+    goFight();
 }
 
 function fightBeast() {
+    fighting = 1;
+    goFight();
+}
+
+function fightDragon() {
+    fighting = 2;
+    goFight();
+}
+
+function goFight () {
+    update(locations[3]);
+    monsterHealth = monsters[fighting].health; /* In this instance fighting is the index of the monster from the locations object and subsequently the monsters array objects */
+    monsterStats.style.display = "block"; /*similar to updating a 
+    key value pair within an object*/
+    monsterName.innerText = monsters[fighting].name;
+    monsterHealthText.innerText = monsterHealth;
+
+}
+
+function attack() {
+    text.innerText = `The ${monsters[fighting].name} attacks.`;
+    text.innerText += ` You attack it with your ${weapons[currentWeapon].name}.`
+    health -= monsters[fighting].level;
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    healthText.innerText = health;
+    monsterHealthText.innerText = monsterHealth; // Stopped at step 125;
+} 
+
+function dodge() {
 
 }
