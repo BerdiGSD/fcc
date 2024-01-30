@@ -96,6 +96,12 @@ const locations =[
         "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
         "button functions": [restart, restart, restart],
         text: "You defeat the dragon! YOU WIN THE GAME! 🎉"
+    },
+    {
+        name: "easter egg",
+        "button text": ["2", "8", "Go to town square?"],
+        "button functions": [pickTwo, pickEight, goStore],
+        text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!"
     }
 ];
 
@@ -188,8 +194,7 @@ function fightDragon() {
 
 function goFight () {
     update(locations[3]);
-    monsterHealth = monsters[fighting].health; /* In this instance fighting is the index 
-    of the monster from the locations object and subsequently the monsters array objects */
+    monsterHealth = monsters[fighting].health; /* In this instance fighting is the index of the monster from the locations object and subsequently the monsters array objects */
     monsterStats.style.display = "block"; /*similar to updating a key value pair within an object*/
     monsterName.innerText = monsters[fighting].name;
     monsterHealthText.innerText = monsterHealth;
@@ -203,7 +208,7 @@ function attack() {
     if (isMonsterHit()){
          monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
     } else {
-        text.innerText += "You miss.";
+        text.innerText += " You miss.";
     }
     healthText.innerText = health;
     monsterHealthText.innerText = monsterHealth; 
@@ -212,9 +217,9 @@ function attack() {
     } else if (monsterHealth <= 0) {
         fighting === 2 ? winGame () : defeatMonster(); // ternary operator
     }
-    if (Math.random() <= 0.1) {
-        text.innerText += `Your ${weapons[currentWeapon].name} breaks.`;
-        // Stop at Step 155
+    if (Math.random() <= .1 && inventory.length !== 1) {
+        text.innerText += " Your " + inventory.pop() + " breaks.";
+        currentWeapon--;
     }
 } 
 
@@ -236,7 +241,7 @@ function defeatMonster() {
     gold += Math.floor(monsters[fighting].level * 6.7);
     xp += monsters[fighting].level;
     goldText.innerText = gold;
-    xp.innerText = xp;
+    xpText.innerText = xp;
     update(locations[4]);
 }
 
@@ -258,4 +263,20 @@ function restart() {
     healthText.innerText = health;
     xpText.innerText = xp;
     goTown();
+}
+
+function easterEgg() {
+    update(locations[7]);
+}
+
+function pickTwo() {
+    pick(2);
+}
+
+function pickEight() {
+    pick(8);
+}
+
+function pick(guess) {
+    const numbers = []; //day 7 -> step 161
 }
