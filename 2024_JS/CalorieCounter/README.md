@@ -4,4 +4,4 @@ Objective for this calorie counter project
 3. Dynamically update your interface to display the results.
 4. Learn basic regular expressions
 5. Template literals
-6. The addEventListener() method and more.
+6. The addEventListener() method and more. 
