@@ -35,10 +35,35 @@ function addEntry () {
     const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
     const HTMLString = `
     <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
-    <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name"></input>
+    <input 
+        type="text" 
+        id="${entryDropdown.value}-${entryNumber}-name" 
+        placeholder="Name"
+        />
     <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
-    <input type="number" id="${entryDropdown.value}-${entryNumber}-calories" placeholder="Calories" min="0"></input>`; 
-    targetInputContainer.insertAdjacentHTML(); // Step 53
+    <input 
+        type="number" 
+        id="${entryDropdown.value}-${entryNumber}-calories" 
+        placeholder="Calories" 
+        min="0"
+        />`; 
+    
+    targetInputContainer.insertAdjacentHTML("beforeend", HTMLString); 
+    /*The insertAdjacentHtml method takes two arguments. 
+    The first argument is a string that specifies the position of the inserted element. 
+    The second argument is a string containing the HTML to be inserted. */
+
+}
+
+function getCaloriesFromInputs (list) {
+    let calories = 0;
+    for (const item of list) {
+        const currVal = cleanInputString(item.value);
+        const invalidInputMatch = isInvalidInput(currVal);
+        if (invalidInputMatch) {
+            // Step 61
+        }
+    }
 }
 
 addEntryButton.addEventListener("click", addEntry)
