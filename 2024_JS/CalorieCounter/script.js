@@ -20,8 +20,10 @@ function cleanInputString (str) {
         }
     }
     */
-    
-    const regex = /[+-\s]/g; //Note that you need to use the \ to escape the +, because a + has a special meaning in regular expressions. \g means global
+    const regex = /[+-\s]/g; 
+    /* Regex:
+    Note that you need to use the \ to escape the +, 
+    because a + has a special meaning in regular expressions. \g means global */
     return str.replace(regex,"");
 }
 
@@ -47,12 +49,31 @@ function addEntry () {
         placeholder="Calories" 
         min="0"
         />`; 
-    
     targetInputContainer.insertAdjacentHTML("beforeend", HTMLString); 
     /*The insertAdjacentHtml method takes two arguments. 
     The first argument is a string that specifies the position of the inserted element. 
     The second argument is a string containing the HTML to be inserted. */
+}
+/* This function will be another event listener, 
+so the first argument passed will be the browser event 
+– e is a common name for this parameter. */
+function calculateCalories (e) {
+    e.preventDefault()
+    isError = false;
 
+    const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]');
+    const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
+    const dinnerNumberInputs = document.querySelectorAll('#dinner input[type=number]');
+    const snacksNumberInputs = document.querySelectorAll('#snacks input[type=number]');
+    const exerciseNumberInputs = document.querySelectorAll('#exercise input[type=number]');
+
+    const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+    const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
+    const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
+    const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
+    const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+
+    // Stopped for today step 73 fcc
 }
 
 function getCaloriesFromInputs (list) {
@@ -61,9 +82,13 @@ function getCaloriesFromInputs (list) {
         const currVal = cleanInputString(item.value);
         const invalidInputMatch = isInvalidInput(currVal);
         if (invalidInputMatch) {
-            // Step 61
+            alert(`Invalid Input: ${invalidInputMatch[0]}`);
+            isError = true;
+            return null;
         }
+        calories += Number(currVal);
     }
+    return calories;
 }
 
 addEntryButton.addEventListener("click", addEntry)
