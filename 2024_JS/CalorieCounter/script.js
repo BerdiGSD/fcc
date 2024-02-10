@@ -105,6 +105,16 @@ function getCaloriesFromInputs (list) {
     return calories;
 }
 
-addEntryButton.addEventListener("click", addEntry);
+function clearForm () {
+    const inputContainer = Array.from(document.querySelectorAll('.input-container'));
+    for (let container of inputContainer) {
+        container.innerHTML = '';
+    }
+    budgetNumberInput.value = '';
+    output.innerText = '';
+    output.classList.add('hide');
+}
 
-// step 86
+addEntryButton.addEventListener("click", addEntry);
+calorieCounter.addEventListener("submit", calculateCalories);
+clearButton.addEventListener("click",clearForm);
