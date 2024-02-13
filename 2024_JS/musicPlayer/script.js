@@ -95,7 +95,9 @@ const playSong = (id) => {
     } else {
         audio.currentTime = userData?.songCurrentTime; 
     }
-    // stopped for now. Step 31; 
+    userData.currentSong = song;
+    playButton.classList.add("playing");
+    audio.play();
 };
 
 const renderSongs = (array) => {
@@ -123,6 +125,15 @@ const renderSongs = (array) => {
 
     playlistSongs.innerHTML = songsHTML;
 };
+
+playButton.addEventListener("click", () => {
+    if (userData?.currentSong === null) {
+        playSong(userData?.songs[0].id)
+    } else {
+        // TODO: STEP 35
+    }
+});
+
 userData?.songs.sort((a, b) => {
     if (a.title < b.title) {
         return -1;
