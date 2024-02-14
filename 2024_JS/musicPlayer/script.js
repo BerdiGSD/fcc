@@ -102,7 +102,8 @@ const playSong = (id) => {
 
 const pauseSong = () => {
     userData.songCurrentTime = audio.currentTime;
-    // TODO step 39
+    playButton.classList.remove("playing");
+    audio.pause();
 };
 
 const renderSongs = (array) => {
@@ -140,6 +141,7 @@ playButton.addEventListener("click", () => {
     }
 });
 
+pauseButton.addEventListener("click",pauseSong);
 userData?.songs.sort((a, b) => {
     if (a.title < b.title) {
         return -1;
