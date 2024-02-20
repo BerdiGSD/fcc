@@ -99,6 +99,7 @@ const playSong = (id) => {
     playButton.classList.add("playing");
     highlightCurrentSong();
     setPlayerDisplay();
+    setPlayButtonAccessibleText();
     audio.play();
 };
 
@@ -116,7 +117,7 @@ const playNextSong = () => {
         const nextSong = userData?.songs[currentSongIndex + 1];
         playSong(nextSong.id); 
     }
-}
+};
 
 const playPreviousSong = () => {
     if (userData?.currentSong === null) {
@@ -126,7 +127,39 @@ const playPreviousSong = () => {
         const previousSong = userData?.songs(currentSongIndex - 1);
         playSong(previousSong.id);
     }
-}
+};
+
+const shuffle = () => {
+    userData?.songs?.sort(() => Math.random() - 0.5);
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+
+    renderSongs(userData?.songs);
+    pauseSong();
+    setPlayerDisplay();
+    setPlayButtonAccessibleText();
+};
+
+const deleteSong = (id) => {
+    // (2) if the song is playing the song needs to pause, update the player, skip to the next song, then play that new song
+    if (userData?.currentSong?.id === id){
+        userData.currentSong = null;
+        userData.songCurrentTime = 0;
+
+        pauseSong();
+        setPlayerDisplay();
+    }
+
+    userData.songs = userData?.songs.filter((song) => song.id !== id); //(1) before deleting the song, check if the song is playing
+    renderSongs(userData?.songs);
+    highlightCurrentSong();
+    setPlayButtonAccessibleText();
+
+    //(3) There needs to be a check to see if the playlist is empty ,if true then the playlist needs to be able to reset to the original state.
+    if (userData?.songs.length === 0) {
+        const resetButton = document.createElement("button");
+    }
+};
 
 const setPlayerDisplay = () => {
     const playingSong = document.getElementById('player-song-title');
@@ -155,7 +188,7 @@ const renderSongs = (array) => {
                 <span class="playlist-song-artist">${song.artist}</span>
                 <span class="playlist-song-duration">${song.duration}</span>
             </button>
-            <button class="playlist-song-delete" aria-label="Delete ${song.title}>
+            <button class="playlist-song-delete" aria-label="Delete ${song.title}" onclick="deleteSong(${song.id})">
                 <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="8" cy="8" r="8" fill="#4d4d62"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M5.32587 5.18571C5.7107 4.90301 6.28333 4.94814 6.60485 
@@ -174,8 +207,12 @@ const renderSongs = (array) => {
 };
 
 const setPlayButtonAccessibleText = () => {
-    /** This function will set the aria-label attribute to the current song, or to the first song in the playlist. And if the playlist is empty, it sets the aria-label to "Play". STOPPED HERE FOR NOW 20240219*/ 
-}
+    const song = userData?.currentSong || userData?.songs[0]; 
+    playButton.setAttribute(
+        "aria-label", 
+        song?.title ? `Play ${song.title}` : 'Play'
+        );
+};
 
 const getCurrentSongIndex = () => userData?.songs.indexOf(userData?.currentSong)
 
@@ -192,6 +229,8 @@ pauseButton.addEventListener("click",pauseSong);
 nextButton.addEventListener('click',playNextSong);
 
 previousButton.addEventListener('click',playPreviousSong);
+
+shuffleButton.addEventListener("click", shuffle)
 
 userData?.songs.sort((a, b) => {
     if (a.title < b.title) {
