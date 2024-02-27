@@ -115,6 +115,7 @@ const playNextSong = () => {
     } else {
         const currentSongIndex = getCurrentSongIndex();
         const nextSong = userData?.songs[currentSongIndex + 1];
+
         playSong(nextSong.id); 
     }
 };
@@ -125,6 +126,7 @@ const playPreviousSong = () => {
     } else {
         const currentSongIndex = getCurrentSongIndex();
         const previousSong = userData?.songs(currentSongIndex - 1);
+
         playSong(previousSong.id);
     }
 };
@@ -141,7 +143,8 @@ const shuffle = () => {
 };
 
 const deleteSong = (id) => {
-    // (2) if the song is playing the song needs to pause, update the player, skip to the next song, then play that new song
+    // (2) if the song is playing the song needs to pause, update the player,
+    // skip to the next song, then play that new song
     if (userData?.currentSong?.id === id){
         userData.currentSong = null;
         userData.songCurrentTime = 0;
@@ -155,9 +158,23 @@ const deleteSong = (id) => {
     highlightCurrentSong();
     setPlayButtonAccessibleText();
 
-    //(3) There needs to be a check to see if the playlist is empty ,if true then the playlist needs to be able to reset to the original state.
+    //(3) There needs to be a check to see if the playlist is empty ,if true
+    //then the playlist needs to be able to reset to the original state.
     if (userData?.songs.length === 0) {
         const resetButton = document.createElement("button");
+        const resetText = document.createTextNode("Reset Playlist");
+        resetButton.id = "reset";
+        resetButton.ariaLabel = "Reset playlist";
+        resetButton.appendChild(resetText);
+        playlistSongs.appendChild(resetButton);
+
+        resetButton.addEventListener("click", () => {
+            userData.songs = [...allSongs];
+
+            renderSongs(sortSongs());
+            setPlayButtonAccessibleText();
+            resetButton.remove();
+        });
     }
 };
 
@@ -172,15 +189,20 @@ const setPlayerDisplay = () => {
 
 const highlightCurrentSong = () => {
     const playlistSongElements =  document.querySelectorAll('.playlist-song');
-    const songToHighLight = document.getElementById(`song-${userData?.currentSong?.id}`);
+    const songToHighLight = document.getElementById(
+        `song-${userData?.currentSong?.id}`
+    );
+
     playlistSongElements.forEach((songEl) => {
         songEl.removeAttribute("aria-current");
     });
+
     if (songToHighLight) songToHighLight.setAttribute("aria-current", "true");
 };
 
 const renderSongs = (array) => {
-    const songsHTML = array.map((song) => {
+    const songsHTML = array
+    .map((song) => {
         return `
         <li id="song-${song.id}" class="playlist-song">
             <button class="playlist-song-info" onclick="playSong(${song.id})">
@@ -199,7 +221,8 @@ const renderSongs = (array) => {
                     4.94102 5.4684 5.32587 5.18571Z" fill="white"/>
                 </svg>
             </button>
-        </li>`
+        </li>
+        `;
     })
     .join("");
 
@@ -208,10 +231,11 @@ const renderSongs = (array) => {
 
 const setPlayButtonAccessibleText = () => {
     const song = userData?.currentSong || userData?.songs[0]; 
+
     playButton.setAttribute(
         "aria-label", 
         song?.title ? `Play ${song.title}` : 'Play'
-        );
+    );
 };
 
 const getCurrentSongIndex = () => userData?.songs.indexOf(userData?.currentSong)
@@ -232,13 +256,23 @@ previousButton.addEventListener('click',playPreviousSong);
 
 shuffleButton.addEventListener("click", shuffle)
 
-userData?.songs.sort((a, b) => {
-    if (a.title < b.title) {
-        return -1;
-    }
-    if (a.title > b.title) {
-        return 1;
-    }
-        return 0;
-});
-renderSongs(userData?.songs);
+audio.addEventListener("ended", () => {
+    
+})
+
+const sortSongs = () => {
+    userData?.songs.sort((a, b) => {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title > b.title) {
+            return 1;
+        }
+            return 0;
+    });
+
+    return userData?.songs;
+}
+
+renderSongs(sortSongs());
+setPlayButtonAccessibleText();
