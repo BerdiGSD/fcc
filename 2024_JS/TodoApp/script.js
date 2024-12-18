@@ -118,4 +118,6 @@ const myTaskArr = [
     { task: "Watch football", date: "10-08-2021" },
 ];
 
-localStorage.setItem("data",myTaskArr);
+localStorage.setItem("data",JSON.stringify(myTaskArr));
+const getTaskArr = localStorage.getItem("data")
+console.log(getTaskArr)
