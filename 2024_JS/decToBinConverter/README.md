@@ -56,3 +56,62 @@ function updateResult(input) {
 }
 
 Let me know if you’re still facing issues!
+
+~NOTES~
+Now your decimalToBinary function is complete. Feel free to play around with it.
+
+But there are some ways to improve it. For example, it's not necessary to keep track of the inputs and quotients. We can clean things up so the function is more efficient.
+
+First, remove everything in the body of the decimalToBinary function. Then, use let to create a variable named binary and assign it an empty string.
+
+<!-- const decimalToBinary = (input) => {
+    const inputs = [];
+    const quotients = [];
+    const remainders = [];
+
+    if (input === 0) {
+        result.innerText = "0";
+        return;
+    }; 
+    while (input > 0) {
+        const quotient = Math.floor(input / 2);
+        const remainder = input % 2;
+        inputs.push(input);
+        quotients.push(quotient);
+        remainders.push(remainder);
+        input = quotient;
+    };
+    console.log("Inputs: ", inputs);
+    console.log("Quotients: ", quotients);
+    console.log("Remainders: ", remainders);
+
+    result.innerText = remainders.reverse().join("")
+}; -->
+
+~NOTES~
+Awesome. Now you have a more efficient way to convert decimal numbers into binary. After learning a bit about the call stack and recursion, you'll refactor the decimalToBinary function to use recursion instead of a while loop.
+
+Create a function named a that returns the following: "freeCodeCamp " + b().
+
+<!-- const decimalToBinary = (input) => {
+    let binary = "";
+
+    if (input === 0) {
+        binary = "0";
+    }
+
+    while (input > 0) {
+        binary = (input % 2) + binary;
+        input = Math.floor(input /2);
+    }
+    result.innerText = binary;
+}; -->
+
+~NOTES~ 
+In computer science, a stack is a data structure where items are stored in a LIFO (last-in-first-out) manner. If you imagine a stack of books, the last book you add to the stack is the first book you can take off the stack. Or an array where you can only .push() and .pop() elements.
+
+The call stack is a collection of function calls stored in a stack structure. When you call a function, it is added to the top of the stack, and when it returns, it is removed from the top / end of the stack.
+
+You'll see this in action by creating mock call stack.
+
+Initialize a variable named callStack and assign it an empty array.
