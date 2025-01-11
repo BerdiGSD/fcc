@@ -9,7 +9,9 @@
 :root {
   --light-grey: #f5f6f7;
   --dark-blue: #1b1b32;
+  --vs-grey: #282D35;
   --orange: #f1be32;
+  --eggshell: #F0EAD6;
 }
 
 body {
@@ -19,8 +21,6 @@ body {
   font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
     monospace;
   font-size: 1.125rem;
-  color: var(--light-grey);
-  background-color: var(--dark-blue);
   padding: 0 4px;
 }
 
@@ -120,5 +120,22 @@ h2 {
 
   .number-input {
     width: unset;
+  }
+  
+}
+
+/* functionality to have a dark mode vs light mode based on system preferences */
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: var(--vs-grey);
+      color: var(--light-grey);
+  }
+}
+
+/* Light mode styles */
+@media (prefers-color-scheme: light) {
+  body {
+      background-color: var(--eggshell);
+      color: var(--dark-blue);
   }
 }
