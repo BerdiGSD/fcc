@@ -77,10 +77,9 @@ h1 {
   padding: 15px;
   border:2px solid var(--orange);
   border-radius: 2.5px;
-  visibility: hidden;
 }
 
-@media screen and (min-width 36em) {
+@media screen and (min-width: 36em) {
   body{
     font-size: 1rem;
   }
