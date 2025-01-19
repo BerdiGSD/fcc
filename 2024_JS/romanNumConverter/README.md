@@ -113,26 +113,27 @@ function convertToRoman(num) {
 
 // Event listener for the button
 document.getElementById("convert-btn").addEventListener("click", () => {
-    const input = document.getElementById("number").value;
-    const output = document.getElementById("output");
+    const input = document.getElementById("number-input").value;
+    const result = document.getElementById("result");
 
     if (input === "") {
-        output.innerText = "Please enter a valid number";
+        result.innerText = "Please enter a valid number";
         return;
     }
 
     const number = parseInt(input, 10);
 
     if (isNaN(number)) {
-        output.innerText = "Please enter a valid number";
+        result.innerText = "Please enter a valid number";
     } else if (number < 1) {
-        output.innerText = "Please enter a number greater than or equal to 1";
+        result.innerText = "Please enter a number greater than or equal to 1";
     } else if (number > 3999) {
-        output.innerText = "Please enter a number less than or equal to 3999";
+        result.innerText = "Please enter a number less than or equal to 3999";
     } else {
-        output.innerText = convertToRoman(number);
+        result.innerText = convertToRoman(number);
     }
 });
+
 
 3. Explanation
 	1.	Input Validation:
