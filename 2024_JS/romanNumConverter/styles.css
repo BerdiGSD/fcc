@@ -82,7 +82,7 @@ main {
   border-radius: 5px;
 }
 
-#result {
+#output {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,7 +114,7 @@ main {
     width: 90%;
   }
 
-  #result {
+  #output {
     font-size: 1.5rem;
     min-height: 80px;
     width: 100%;
@@ -139,7 +139,7 @@ main {
     box-shadow: 0 0 5px 1px  var(--gold);
   }
 
-  #result {
+  #output {
     border: 1px solid var(--dark-blue);
     box-shadow: 0 0 5px 1px  var(--gold);
     visibility: hidden;
@@ -157,7 +157,7 @@ main {
     box-shadow: 0 0 5px 1px var(--light-grey);
   }
 
-  #result {
+  #output {
     border: 1px solid var(--dark-blue);
     box-shadow: 0 0 5px 1px  var(--gold);
     visibility: hidden;

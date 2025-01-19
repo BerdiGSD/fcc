@@ -1,6 +1,6 @@
-const numInput = document.getElementById("number");
+const number = document.getElementById("number");
 const convertBtn = document.getElementById("convert-btn");
-const result = document.getElementById("result");
+const output = document.getElementById("output");
 function convertToRoman(num) {
     const romanNumerals = [
         { value: 1000, numeral: "M" },
@@ -18,38 +18,54 @@ function convertToRoman(num) {
         { value: 1, numeral: "I" }
     ];
 
-    let result = "";
+    let output = "";
     for (const { value, numeral } of romanNumerals) {
         while (num >= value) {
-            result += numeral;
-            // console.log(`While loop #:(${num}) Numeral: ${result}`) // testing increment of the while loop
+            output += numeral;
+            // console.log(`While loop #:(${num}) Numeral: ${output}`) // testing increment of the while loop
             num -= value;
         }
-        // console.log(`For loop #:(${num}) Numeral: ${result}`) // testing increment of for loop to the object romanNumerals
+        // console.log(`For loop #:(${num}) Numeral: ${output}`) // testing increment of for loop to the object romanNumerals
     }
-    return result;
+    return output;
 };
 
 const checkUserInput = () => {
-    const inputInt = parseInt(numInput.value);
-    result.style.visibility = "visible"
+    const inputInt = parseInt(number.value);
+    output.style.visibility = "visible"
 
-    if (!numInput.value || isNaN(inputInt) || inputInt < 1 || inputInt > 3999) {
-        result.innerHTML = (
+    if (!number.value || isNaN(inputInt)) {
+        output.innerHTML = (
             `
-            <div class="result-container">
+            <Section class="output-container">
                 <p>Please enter a valid number</p>
-            <div>
+            <Section>
+            `
+        );
+    } else if (inputInt < 1) {
+        output.innerHTML = (
+            `
+            <Section class="output-container">
+                <p>Please enter a number greater than or equal to 1</p>
+            <Section>
+            `
+        );
+    } else if (inputInt < 1 || inputInt > 3999) {
+        output.innerHTML = (
+            `
+            <Section class="output-container">
+                <p>Please enter a number less than or equal to 3999</p>
+            <Section>
             `
         );
     } else {
-        result.innerText = convertToRoman(inputInt)
+        output.innerText = convertToRoman(inputInt)
     }
 };
 
 convertBtn.addEventListener("click", checkUserInput);
 
-numInput.addEventListener("keydown", (e) => {
+number.addEventListener("keydown", (e) => {
     if(e.key === "Enter") {
         checkUserInput()
     }
