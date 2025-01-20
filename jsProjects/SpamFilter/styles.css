@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dark-grey: #2c2f33;       /* Soft charcoal grey, slightly lighter for a modern look */
+  --light-grey: #f9fafb;      /* Clean, airy white-grey for light backgrounds */
+  --golden-yellow: #fcd34d;   /* Warm, sophisticated golden yellow */
+  --yellow: #fbbf24;          /* Bright, sunny yellow for accents */
+  --gold: #f59e0b;            /* Rich, golden amber for a luxurious feel */
+  --orange: #fb923c;          /* Vibrant orange with a soft undertone */
+  --dark-orange: #ea580c;     /* Deep, bold burnt orange */
+}
+
+body {
+  background-color: var(--dark-grey);
+  color: var(--light-grey);
+}
+
+body,
+#message-input:placeholder-shown {
+  text-align: center;
+}
+
+textarea {
+  max-width: 90%;
+}
+
+.main-text {
+  margin: 25px 0;
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.description {
+  margin-top: 15px;
+  font-size: 1.4rem;
+}
+
+.message-label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+#message-input:placeholder-shown,
+textarea {
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: block;
+  cursor: pointer;
+  width: 200px;
+  margin: 10px auto;
+  color: var(--dark-grey);
+  background-color: var(--gold);
+  background-image: linear-gradient(var(--golden-yellow), var(--orange));
+  border-color: var(--gold);
+  border-width: 3px;
+}
+
+.btn:hover {
+  background-image: linear-gradient(var(--yellow), var(--dark-orange));
+}
+
+#result {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.footer {
+  margin-top: 10px;
+}
