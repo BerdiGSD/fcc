@@ -7,25 +7,26 @@ const helpRegex = /please help|assist me/i;
 const isSpam = (msg) => helpRegex.test(msg); 
 //Instead of using the .match() method, you can use the .test() method of a
 //regular expression to test if a string matches the pattern.
+const denyList = [helpRegex];
 
 checkMessageButton.addEventListener("click",() => {
-    activateEventListener();
+    msgEventListener();
 });
 
 messageInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-        activateEventListener()
+        msgEventListener()
     };
 });
 
-const activateEventListener = () => {
+const msgEventListener = () => {
     if (messageInput.value === "" ) {
         alert("Please enter a message.");
         return;
     }
-
     result.textContent = isSpam(messageInput.value) ? 
-    "Oh no! This looks like a spam message." : "This message does not seem to contain any spam."
-
+        "Oh no! This looks like a spam message." : 
+        "This message does not seem to contain any spam."
+    
     messageInput.value = "";
-}
+};
