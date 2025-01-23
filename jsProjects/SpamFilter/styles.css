@@ -14,11 +14,7 @@
   --gold: #f59e0b;            /* Rich, golden amber for a luxurious feel */
   --orange: #fb923c;          /* Vibrant orange with a soft undertone */
   --dark-orange: #ea580c;     /* Deep, bold burnt orange */
-}
-
-body {
-  background-color: var(--dark-grey);
-  color: var(--light-grey);
+  --eggshell: #F0EAD6;
 }
 
 body,
@@ -77,4 +73,20 @@ textarea {
 
 .footer {
   margin-top: 10px;
+}
+
+/* functionality to have a dark mode vs light mode based on system preferences */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--dark-grey);
+    color: var(--light-grey);
+  }
+}
+
+/* Light mode styles */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--eggshell);
+    color: var(--dark-grey);
+  }
 }
