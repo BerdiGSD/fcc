@@ -3,11 +3,10 @@ const result = document.getElementById("result");
 const checkMessageButton = document.getElementById("check-message-btn");
 
 const helpRegex = /please help|assist me/i;
-// const isSpam = (msg) => msg.match(helpRegex);
-const isSpam = (msg) => helpRegex.test(msg); 
-//Instead of using the .match() method, you can use the .test() method of a
-//regular expression to test if a string matches the pattern.
+
 const denyList = [helpRegex];
+
+const isSpam = (msg) => denyList.some(regex => regex.test(msg));
 
 checkMessageButton.addEventListener("click",() => {
     msgEventListener();
