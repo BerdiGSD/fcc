@@ -1,0 +1,1 @@
+Start of my journey to the world of data analytics.
