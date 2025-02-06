@@ -52,6 +52,7 @@ Example Code const myFunction = (string = "") => {
 
 }
 
+~NOTES~ Bubble Sort
 Now you need to actually sort the array. The first sorting algorithm you will
 implement is the bubble sort, which starts at the beginning of the array and
 'bubbles up' unsorted values towards the end, iterating through the array until
@@ -59,3 +60,32 @@ it is completely sorted.
 
 Begin by declaring a bubbleSort variable and assigning it an arrow function that
 takes an array parameter.
+
+~NOTES~ Selection Sort
+
+Time to implement another sorting algorithm. This time, you'll be implementing a
+selection sort. Selection sort works by finding the smallest value in the array,
+then swapping it with the first value in the array. Then, it finds the next
+smallest value in the array, and swaps it with the second value in the array. It
+continues iterating through the array until it is completely sorted.
+
+Start by declaring a selectionSort variable and assigning it an arrow function
+that takes an array parameter.
+
+A selection sort relies on tracking the index of the smallest value in the
+array. Declare a variable minIndex and set it to i - this ensures that if your
+current value is the smallest, it will be swapped with itself and not be moved.
+You will need to be able to reassign the value of minIndex as you iterate
+through the array.
+
+Then, write another for loop, using j as the iterator. This loop needs to start
+at the index after i and iterate through the rest of the array.
+
+~NOTES~ Insertion Sort
+An insertion sort algorithm starts the sort at the beginning of the list,
+meaning the first element is already sorted. With this in mind, create a for
+loop that starts at the second element in the array - it should still iterate
+through the rest of the array.
+
+Start by declaring an insertionSort variable and assigning it an arrow function
+which takes an array parameter.
