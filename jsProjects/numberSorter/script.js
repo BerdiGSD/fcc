@@ -9,6 +9,7 @@ const sortInputArray = (event) => {
 
     // const sortedValues = bubbleSort(inputValues); // Utilizing bubble sort
     // const sortedValues = selectionSort(inputValues); // Utilizing selection sort
+    // const sortedValues = selectionSort_fireship(inputValues); // Utilizing selection sort fireship version
     const sortedValues = insertionSort(inputValues); // Utilizing Insertion sort
     updateUI(sortedValues);
 };
@@ -51,11 +52,39 @@ const selectionSort = (array) => {
     return array;
 };
 
+
+const selectionSort_fireship = (arr) => {
+    console.log(arr)
+    for (let i = 0; i < arr.length; i++) {
+        let min = i;
+        console.log("first loop i: " + min)
+        console.log(arr)
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) {
+                console.log("IF arr[j] < arr[min]: " + (arr[j] < arr[min]));
+                min = j;
+                console.log("Second loop j: " + min);
+            }
+            console.log(arr)
+        }
+        if (min !== i) {
+            console.log("IF min !== i: " + (min !== i));
+            [arr[i], arr[min]] = [arr[min], arr[i]];
+            console.log(`Swap: [${arr[i]}, ${arr[min]}] = [${arr[min]}, ${arr[i]}]`);
+            console.log(arr)
+        }
+    }
+    console.log("Final: " + arr)
+    return arr;
+}
+
 const insertionSort = (array) => {
     for (let i = 1; i < array.length; i++){
         const currValue = array[i];
         let j = i - 1;
+        while () {
 
+        };
     }
 };
 
