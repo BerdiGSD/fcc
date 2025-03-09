@@ -135,7 +135,6 @@
       max-width: 420px;
     }
   }
-
   /* functionality to have a dark mode vs light mode based on system preferences */
 @media (prefers-color-scheme: dark) {
     body {
