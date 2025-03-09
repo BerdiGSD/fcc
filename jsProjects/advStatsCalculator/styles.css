@@ -1,0 +1,65 @@
+:root {
+    --bg_body_dark: rgb(27, 27, 50);
+    --bg_button_dark: rgb(59, 59, 79);
+    --bg_input_dark: rgb(10, 10, 35);
+    --text_dark:rgb(255, 255, 255);
+    --text_light: rgb(70, 66, 66);
+    --bg_body_light: rgb(255, 254, 243);
+    --bg_button_light: rgb(231, 238, 250);
+    --bg_input_light: rgb(226, 226, 226);
+}
+
+body {
+    margin: 0;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    border: 1px solid rgb(59, 59, 79);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+    body, button, input {
+        color: var(--text_dark)
+    }
+    
+    body {
+        background-color: var(--bg_body_dark);
+    }
+
+    button {
+        background-color: var(--bg_button_dark);
+        border: 1.5px solid var(--bg_button_light);
+    }
+
+    input {
+        background-color: var(--bg_input_dark);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body, button, input {
+        color: var(--text_light)
+    }
+
+    body {
+        background-color: var(--bg_body_light);
+    }
+
+    button {
+        background-color: var(--bg_button_light);
+        border: 1.5px solid var(--bg_button_dark);
+    }
+
+    input {
+        background-color: var(--bg_input_light);
+    }
+}
