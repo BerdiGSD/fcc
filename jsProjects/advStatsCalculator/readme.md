@@ -69,3 +69,27 @@ const oddListMedian = testArr1[Math.floor(testArr1.length / 2)];
 console.log(oddListMedian);
 const evenListMedian = getMean([testArr2[testArr2.length / 2 - 1], testArr2[testArr2.length / 2]]);
 console.log(evenListMedian);
+
+~NOTES~
+Calculating mode using the following approach: 
+const numbersArr = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4];
+const counts = {};
+numbersArr.forEach((el) => {
+  if (counts[el]) {
+    counts[el] += 1;
+  } else {
+    counts[el] = 1;
+  }
+});
+
+const getMode = (array) => {
+    const counts = {};
+    array.forEach((el) => {
+        if (counts[el]) {
+            counts[el] += 1;
+        } else {
+            counts[el] = 1;
+        }
+    });
+    
+}
