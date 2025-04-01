@@ -25,6 +25,10 @@ const getMode = (array) => {
     return mode.join(", ");
 }
 
+const getRange = (array) => {
+    return Math.max(...array) - Math.min(...array);
+};
+
 const calculate = () => {
     const value = document.querySelector("#numbers").value;
     const array = value.split(/,\s*/g);
@@ -38,5 +42,7 @@ const calculate = () => {
 
     const mode = getMode(numbers);
     document.querySelector("#mode").textContent = mode;
-}
 
+    const range = getRange(numbers);
+    document.querySelector("#range").textContent = range;
+}
