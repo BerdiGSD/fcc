@@ -99,3 +99,22 @@ There are a few edge cases to account for when calculating the mode of a dataset
 To calculate this, you will use a Set. A Set is a data structure that only allows unique values. If you pass an array into the Set constructor, it will remove any duplicate values.
 
 Start by creating an if statement. In the condition, create a Set with new Set() and pass it the Object.values() of your counts object. If the size property of this Set is equal to 1, that tells you every value appears the same number of times. In this case, return null from your function.
+
+const getVariance = (array) => {
+    const mean = getMean(array);
+    const differences = array.map(
+        (el) => el - mean
+    );
+    const squaredDifferences = differences.map(
+        (el) => el ** 2
+    );
+    const sumSquaredDifferences = squaredDifferences.reduce(
+        (acc, el) => acc + el, 0
+    );
+    
+};
+
+TODO:
+With two .map() calls and a .reduce() call, you're creating extra arrays and iterating more times than needed. You should move all of the logic into the .reduce() call to save time and memory.
+
+Remove the differences, squaredDifferences, and sumSquaredDifferences variables (and their values). Declare a variance variable, and assign it the value of array.reduce(). For the callback, pass in your standard acc and el parameters, but leave the function body empty for now. Don't forget to set the initial value to 0.

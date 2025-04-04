@@ -29,6 +29,23 @@ const getRange = (array) => {
     return Math.max(...array) - Math.min(...array);
 };
 
+const getVariance = (array) => {
+    const mean = getMean(array);
+    const variance = array.reduce(
+        (acc, el) => {
+            const difference = el - mean;
+            const squared = difference ** 2;
+            return acc + squared;
+        }, 0) / array.length;
+    return variance;
+};
+
+const getStandardDeviation = (array) => {
+    const variance = getVariance(array);
+    const standardDeviation = Math.sqrt(variance);
+    return standardDeviation;
+};
+
 const calculate = () => {
     const value = document.querySelector("#numbers").value;
     const array = value.split(/,\s*/g);
@@ -45,4 +62,10 @@ const calculate = () => {
 
     const range = getRange(numbers);
     document.querySelector("#range").textContent = range;
+
+    const variance = getVariance(numbers);
+    document.querySelector("#variance").textContent = variance;
+
+    const standardDeviation = getStandardDeviation(numbers);
+    document.querySelector("#standardDeviation").textContent = standardDeviation;
 }
